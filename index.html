@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduFun - dunia permainan belajar pecahan untuk anak SD.">
+    <title>EduFun — Magical Fraction World</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="#" aria-label="EduFun Beranda">
+                <span class="brand-mark">½</span>
+                <span>
+                    Edu<span class="brand-accent">Fun</span>
+                <small>Magical Fraction World</small>
+                </span>
+            </a>
+
+            <div class="nav-label">DUNIA EDUFUN</div>
+
+            <nav class="main-nav" aria-label="Navigasi utama">
+                <button class="nav-link active" data-page="home">
+                    <span>⌂</span> Beranda
+                </button>
+
+                <button class="nav-link" data-page="materials">
+                    <span>▤</span> Materi
+                </button>
+
+                <button class="nav-link" data-page="games">
+                    <span>✦</span> Petualangan
+                </button>
+
+                <button class="nav-link" data-page="quiz">
+                    <span>☑</span> Kuis
+                </button>
+
+                <button class="nav-link" data-page="progress">
+                    <span>▥</span> Progres Belajar
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="side-tip">
+                    <span class="tip-icon">💡</span>
+                    <b>Tips hari ini</b>
+                    <p>Jangan takut mencoba! Setiap tantangan membuatmu semakin hebat.</p>
+                </div>
+
+                <button class="nav-link" data-page="profile">
+                    <span>☺</span> Profil Saya
+                </button>
+
+            </div>
+        </aside>
+
+
+        <!-- MAIN AREA -->
+        <main class="main-area">
+
+            <header class="topbar">
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+                    ☰
+                </button>
+
+                <div class="breadcrumb">
+                    Dunia EduFun <span>/</span>
+                    <b id="pageLabel">Beranda</b>
+                </div>
+
+                <div class="top-actions">
+                    <span class="streak">🔥 <b id="streakCount">1</b> hari</span>
+                    <div class="edu-audio-widget" id="eduAudioWidget">
+                        <button class="edu-audio-toggle" id="eduAudioToggle" type="button"
+                                aria-label="Buka pengaturan suara" aria-expanded="false"
+                                aria-controls="eduAudioPanel" title="Pengaturan suara">
+                            <span id="eduAudioIcon" aria-hidden="true">🔊</span>
+                        </button>
+                        <div class="edu-audio-panel" id="eduAudioPanel" hidden>
+                            <div class="edu-audio-panel-head">
+                                <div>
+                                    <strong>Suara EduFun</strong>
+                                    <small id="eduAudioStatus">Musik aktif setelah interaksi pertama</small>
+                                </div>
+                                <button type="button" class="edu-audio-mute" id="eduAudioMute">Matikan semua</button>
+                            </div>
+                            <label class="edu-audio-check">
+                                <input type="checkbox" id="eduMusicEnabled" checked>
+                                <span>🎵 Musik latar</span>
+                            </label>
+                            <div class="edu-audio-volume-label">
+                                <label for="eduMusicVolume">Volume musik</label>
+                                <strong id="eduMusicVolumeValue">80%</strong>
+                            </div>
+                            <input class="edu-audio-range" type="range" id="eduMusicVolume" min="0" max="100" value="80">
+                            <label class="edu-audio-check">
+                                <input type="checkbox" id="eduSfxEnabled" checked>
+                                <span>✨ Efek suara</span>
+                            </label>
+                            <p class="edu-audio-note">Musik mulai saat kamu mengetuk atau menekan tombol di halaman.</p>
+                        </div>
+                    </div>
+                    <div class="avatar">🧑‍🎓</div>
+                </div>
+
+            </header>
+
+            <!-- Langit dekoratif EduFun: warna ceria dan burung yang terbang -->
+            <div class="edufun-sky-layer" aria-hidden="true">
+                <span class="sky-bird sky-bird-one">🕊️</span>
+                <span class="sky-bird sky-bird-two">🐦</span>
+                <span class="sky-bird sky-bird-three">🕊️</span>
+                <span class="sky-bird sky-bird-four">🐦</span>
+                <span class="sky-bird sky-bird-five">🕊️</span>
+                <span class="sky-cloud sky-cloud-one"></span>
+                <span class="sky-cloud sky-cloud-two"></span>
+            </div>
+
+            <div class="content">
+
+                <!-- =====================================
+                     BERANDA MAGICAL WORLD
+                ====================================== -->
+
+                <section class="page active home-world" id="page-home">
+
+                    <div class="home-welcome">
+
+                        <div>
+                            <span class="home-eyebrow">✨ SELAMAT DATANG, PETUALANG!</span>
+
+                            <h1>
+                                Halo, <span id="greetingName">Pejuang Pecahan</span>! 👋
+                            </h1>
+
+                            <p>Siap menjelajahi dunia penuh keajaiban hari ini?</p>
+                        </div>
+
+                        <div class="home-welcome-badge">
+                            <span>🔥</span>
+
+                            <div>
+                                <b id="homeStreakCount">1</b>
+                                <small>Hari semangat</small>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- HERO -->
+                    <div class="magical-hero">
+
+                        <div class="hero-background-decor">
+                            <span class="decor-star star-one">✦</span>
+                            <span class="decor-star star-two">✧</span>
+                            <span class="decor-star star-three">✦</span>
+                            <span class="decor-cloud cloud-one">☁</span>
+                            <span class="decor-cloud cloud-two">☁</span>
+                        </div>
+
+                        <div class="magical-hero-content">
+
+                            <div class="world-label">
+                                🌈 MAGICAL FRACTION WORLD
+                            </div>
+
+                            <h2>
+                                Petualangan<br>
+                                <span>Dunia Pecahan!</span>
+                            </h2>
+
+                            <p>
+                                Temukan pulau ajaib, pecahkan teka-teki, dan kumpulkan harta karun pengetahuan!
+                            </p>
+
+                            <div class="magical-hero-buttons">
+
+                                <button class="world-start-btn" data-go="games">
+                                    🚀 Mulai Petualangan
+                                </button>
+
+                                <button class="world-learn-btn" data-go="materials">
+                                    📚 Belajar Materi
+                                </button>
+
+                            </div>
+
+                            <div class="hero-reward-note">
+                                ⭐ Selesaikan misi dan kumpulkan bintang!
+                            </div>
+
+                        </div>
+
+
+                        <!-- ILUSTRASI DUNIA -->
+                        <div class="magical-world-scene" aria-hidden="true">
+
+                            <div class="scene-sun"></div>
+
+                            <div class="scene-cloud scene-cloud-one">☁️</div>
+                            <div class="scene-cloud scene-cloud-two">☁️</div>
+
+                            <div class="scene-island island-back">
+                                <span>🌳</span>
+                                <span>🏡</span>
+                            </div>
+
+                            <div class="scene-island island-main">
+                                <span class="island-tree">🌴</span>
+                                <span class="island-castle">🏰</span>
+                                <span class="island-chest">🎁</span>
+                            </div>
+
+                            <div class="scene-island island-front">
+                                <span>🌲</span>
+                                <span>🌼</span>
+                            </div>
+
+                            <div class="scene-mascot">
+                                🐲
+                                <div class="mascot-message">Ayo bermain!</div>
+                            </div>
+
+                            <div class="scene-star star-four">⭐</div>
+                            <div class="scene-star star-five">✨</div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MISI -->
+                    <div class="daily-mission">
+
+                        <div class="mission-icon">🎯</div>
+
+                        <div class="mission-description">
+                            <span>MISI PETUALANGAN</span>
+                            <h3>Ayo kumpulkan bintang!</h3>
+                            <p>Pelajari materi dan selesaikan tantangan pecahanmu.</p>
+                        </div>
+
+                        <button class="mission-button" data-go="games">
+                            Lihat Misi →
+                        </button>
+
+                    </div>
+
+
+                    <!-- PENCAPAIAN -->
+                    <div class="home-section-title">
+
+                        <div>
+                            <span class="home-eyebrow">🏆 PENCAPAIANMU</span>
+                            <h2>Petualanganmu sejauh ini</h2>
+                        </div>
+
+                    </div>
+
+                    <div class="home-achievements">
+
+                        <div class="achievement-card achievement-stars">
+
+                            <div class="achievement-icon">⭐</div>
+
+                            <div>
+                                <span>Total Bintang</span>
+                                <strong id="starTotal">0</strong>
+                                <small>Harta karunmu!</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="achievement-card achievement-lessons">
+
+                            <div class="achievement-icon">📚</div>
+
+                            <div>
+                                <span>Materi Selesai</span>
+                                <strong id="materialTotal">0/15</strong>
+                                <small>Terus belajar!</small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="achievement-card achievement-quiz">
+
+                            <div class="achievement-icon">🏅</div>
+
+                            <div>
+                                <span>Kuis Dikerjakan</span>
+                                <strong id="quizTotal">0</strong>
+                                <small>Berani mencoba!</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PREVIEW TIGA PULAU -->
+                    <div class="home-section-title island-section-title">
+
+                        <div>
+                            <span class="home-eyebrow">🗺️ DUNIA YANG MENANTIMU</span>
+                            <h2>Tiga pulau petualangan</h2>
+                            <p>Setiap pulau memiliki mini-game dan lima stage dengan tantangan berbeda.</p>
+                        </div>
+
+                        <button class="home-see-all" data-go="games">
+                            Lihat Peta →
+                        </button>
+
+                    </div>
+
+
+                    <div class="home-island-preview home-island-preview-three">
+
+                        <button class="preview-island preview-island-purple" data-go="games">
+                            <span>🍕</span>
+                            <b>Pulau Mudah</b>
+                            <small>Domino Pecahan · 5 Stage</small>
+                        </button>
+
+                        <button class="preview-island preview-island-blue" data-go="games">
+                            <span>🍕</span>
+                            <b>Pulau Menengah</b>
+                            <small>Arsir Pizza · 5 Stage</small>
+                        </button>
+
+                        <button class="preview-island preview-island-green" data-go="games">
+                            <span>➕</span>
+                            <b>Pulau Sulit</b>
+                            <small>Arsir Kotak Penjumlahan · 5 Stage</small>
+                        </button>
+
+                    </div>
+
+
+                    <!-- AKTIVITAS -->
+                    <div class="home-section-title">
+
+                        <div>
+                            <span class="home-eyebrow">🎮 PILIH PETUALANGAN</span>
+                            <h2>Mau bermain apa hari ini?</h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="home-activities">
+
+                        <button class="home-activity activity-learn" data-go="materials">
+
+                            <div class="activity-art">📖</div>
+
+                            <div>
+                                <span>JELAJAHI ILMU</span>
+                                <h3>Ruang Belajar</h3>
+                                <p>Pelajari pecahan melalui cerita dan gambar.</p>
+                                <b>Mulai belajar →</b>
+                            </div>
+
+                        </button>
+
+
+                        <button class="home-activity activity-game" data-go="games">
+
+                            <div class="activity-art">🧩</div>
+
+                            <div>
+                                <span>UJI KEBERANIAN</span>
+                                <h3>Game Tantangan</h3>
+                                <p>Selesaikan tantangan untuk mendapatkan bintang.</p>
+                                <b>Main sekarang →</b>
+                            </div>
+
+                        </button>
+
+
+                        <button class="home-activity activity-quiz" data-go="quiz">
+
+                            <div class="activity-art">🏆</div>
+
+                            <div>
+                                <span>UJI KEMAMPUAN</span>
+                                <h3>Kuis Pecahan</h3>
+                                <p>Buktikan bahwa kamu seorang jagoan pecahan.</p>
+                                <b>Mulai kuis →</b>
+                            </div>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- TIPS MASKOT -->
+                    <div class="mascot-tip">
+
+                        <div class="mascot-tip-character">🐲</div>
+
+                        <div>
+                            <span>PESAN DARI TEMAN PETUALANGMU</span>
+
+                            <p>
+                                "Tidak perlu takut salah. Setiap kesalahan adalah kesempatan untuk belajar lebih hebat!"
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     MATERI: PILIH TINGKAT
+                ====================================== -->
+
+                <section class="page" id="page-materials">
+
+                    <div class="page-intro">
+                        <p class="eyebrow">📚 DUNIA PEMBELAJARAN EDUFUN</p>
+                        <h1>Jelajahi Materi Pecahan!</h1>
+
+                        <p class="muted">
+                            Pilih tingkat petualanganmu dan mulai belajar pecahan.
+                        </p>
+                    </div>
+
+
+                    <!-- PILIH TINGKAT -->
+                    <div id="materialLevelScreen" class="material-level-screen">
+
+                        <div class="material-heading">
+
+                            <span>🗺️ PETA PEMBELAJARAN</span>
+                            <h2>Di mana petualanganmu dimulai?</h2>
+                            <p>Pilih tingkat yang ingin kamu pelajari!</p>
+
+                        </div>
+
+
+                        <div class="material-level-grid">
+
+                            <button class="material-level-card level-basic" data-material-level="dasar">
+
+                                <div class="material-level-art">
+                                    <span class="level-cloud">☁️</span>
+                                    <span class="level-main-icon">🌱</span>
+                                    <span class="level-decoration">⭐</span>
+                                </div>
+
+                                <div class="material-level-info">
+
+                                    <span class="level-number">LEVEL 01</span>
+                                    <h3>Materi Dasar</h3>
+
+                                    <p>
+                                        Mulai kenali pecahan dari benda dan bagian sederhana.
+                                    </p>
+
+                                    <div class="level-meta">
+                                        <span>📖 5 Materi</span>
+                                        <b>Mulai →</b>
+                                    </div>
+
+                                </div>
+
+                            </button>
+
+
+                            <button class="material-level-card level-middle" data-material-level="menengah">
+
+                                <div class="material-level-art">
+                                    <span class="level-cloud">☁️</span>
+                                    <span class="level-main-icon">🚀</span>
+                                    <span class="level-decoration">✨</span>
+                                </div>
+
+                                <div class="material-level-info">
+
+                                    <span class="level-number">LEVEL 02</span>
+                                    <h3>Materi Menengah</h3>
+
+                                    <p>
+                                        Amati bentuk pecahan dan temukan hubungan antarpecahan.
+                                    </p>
+
+                                    <div class="level-meta">
+                                        <span>📖 5 Materi</span>
+                                        <b>Mulai →</b>
+                                    </div>
+
+                                </div>
+
+                            </button>
+
+
+                            <button class="material-level-card level-advanced" data-material-level="lanjutan">
+
+                                <div class="material-level-art">
+                                    <span class="level-cloud">☁️</span>
+                                    <span class="level-main-icon">🏆</span>
+                                    <span class="level-decoration">💎</span>
+                                </div>
+
+                                <div class="material-level-info">
+
+                                    <span class="level-number">LEVEL 03</span>
+                                    <h3>Materi Lanjutan</h3>
+
+                                    <p>
+                                        Gunakan kemampuanmu untuk membandingkan dan menghitung pecahan.
+                                    </p>
+
+                                    <div class="level-meta">
+                                        <span>📖 5 Materi</span>
+                                        <b>Mulai →</b>
+                                    </div>
+
+                                </div>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="material-bottom-tip">
+                            <span>🐲</span>
+
+                            <p>
+                                Jangan terburu-buru, petualang! Pelajari setiap materi sampai kamu benar-benar memahaminya.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- DAFTAR TOPIK DAN DETAIL -->
+                    <div id="materialTopicScreen" hidden>
+
+                        <button class="back-material-levels" id="backToMaterialLevels">
+                            ← Kembali ke pilihan tingkat
+                        </button>
+
+
+                        <div class="selected-level-header">
+
+                            <div>
+
+                                <span id="selectedLevelBadge" class="selected-level-badge">
+                                    LEVEL 01
+                                </span>
+
+                                <h2 id="selectedLevelTitle">Materi Dasar</h2>
+
+                                <p id="selectedLevelDescription" class="muted">
+                                    Pelajari dasar-dasar pecahan.
+                                </p>
+
+                            </div>
+
+                            <div id="selectedLevelEmoji" class="selected-level-emoji">
+                                🌱
+                            </div>
+
+                        </div>
+
+
+                        <div class="lesson-layout">
+
+                            <div class="lesson-list" id="lessonList"></div>
+
+                            <article class="lesson-view card" id="lessonView">
+
+                                <div class="empty-state">
+                                    <div>📖</div>
+                                    <h3>Pilih materi di sebelah kiri</h3>
+                                    <p>Petualangan belajarmu dimulai dari sini.</p>
+                                </div>
+
+                            </article>
+
+                        </div>
+
+
+                        <!-- STUDIO VISUAL -->
+                        <div class="card visualizer">
+
+                            <div>
+                                <p class="eyebrow">🎨 COBA SENDIRI</p>
+                                <h2>Studio Visual Pecahan</h2>
+
+                                <p class="muted">
+                                    Atur jumlah bagian dan warnai beberapa bagian untuk melihat bentuk pecahannya.
+                                </p>
+                            </div>
+
+
+                            <div class="visualizer-controls">
+
+                                <label>
+                                    Jumlah seluruh bagian
+
+                                    <select id="wholeParts">
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option selected>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>8</option>
+                                        <option>10</option>
+                                    </select>
+
+                                </label>
+
+
+                                <label>
+                                    Bagian diwarnai
+
+                                    <input id="coloredParts" type="range"
+                                        min="0" max="4" value="1">
+                                </label>
+
+
+                                <div class="visual-result">
+
+                                    <div id="fractionShape" class="fraction-shape"></div>
+
+                                    <div>
+                                        <strong id="fractionText">1/4</strong>
+
+                                        <p id="fractionExplain" class="muted">
+                                            Satu dari empat bagian diwarnai.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     PETUALANGAN
+                ====================================== -->
+
+                <section class="page" id="page-games">
+
+                    <div class="page-intro">
+
+                        <p class="eyebrow">BELAJAR SAMBIL BERMAIN</p>
+                        <h1>Petualangan Pecahan 🧩</h1>
+
+                        <p class="muted">
+                            Jelajahi tiga pulau, selesaikan lima stage di setiap pulau, dan kumpulkan bintang.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PANEL PETA PETUALANGAN -->
+                    <div class="adventure-panel card">
+
+                        <div class="adventure-panel-header">
+
+                            <div>
+                                <p class="eyebrow">DUNIA PETUALANGAN</p>
+                                <h2>Jelajahi Tiga Pulau Ajaib! 🏝️</h2>
+
+                                <p class="muted">
+                                    Pilih pulau, temukan lima stage, dan selesaikan tantangannya.
+                                </p>
+                            </div>
+
+
+                            <div class="adventure-player">
+
+                                <div class="adventure-player-avatar">🧑‍🚀</div>
+
+                                <div>
+                                    <b id="adventurePlayerName">Pejuang Pecahan</b>
+                                    <small id="adventureRank">Penjelajah Pemula</small>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PROGRES PETUALANGAN -->
+                        <div class="adventure-progress-info">
+
+                            <span id="adventureProgressText">
+                                0 dari 15 stage selesai
+                            </span>
+
+                            <b>
+                                ⭐ <span id="adventureStars">0</span>
+                            </b>
+
+                        </div>
+
+
+                        <div class="adventure-progress-track">
+                            <span id="adventureProgressFill"></span>
+                        </div>
+
+
+                        <!-- PETA TIGA PULAU DAN STAGE -->
+                        <div id="adventureMap" class="adventure-map"></div>
+
+
+                        <div class="adventure-hint">
+                            💡 Selesaikan stage secara berurutan untuk membuka tantangan berikutnya!
+                        </div>
+
+                    </div>
+
+
+                    <!-- GAME AREA -->
+                    <div class="game-card card">
+
+                        <div class="game-top">
+
+                            <span class="game-badge">TANTANGAN 01</span>
+
+                            <span class="muted" id="gameScore">
+                                Jawaban benar: 0
+                            </span>
+
+                        </div>
+
+
+                        <div class="game-content">
+
+                            <div class="game-illustration">🍕</div>
+
+                            <div>
+
+                                <h2>Berapa bagian yang diarsir?</h2>
+
+                                <p class="muted">
+                                    Bayangkan pizza dibagi menjadi empat bagian sama besar. Dua bagian diarsir.
+                                </p>
+
+                                <div class="pizza-demo">
+                                    <span>◕</span>
+                                </div>
+
+
+                                <div class="answer-options" id="gameOptions">
+
+                                    <button data-answer="1/4">1/4</button>
+                                    <button data-answer="2/4">2/4</button>
+                                    <button data-answer="3/4">3/4</button>
+                                    <button data-answer="4/4">4/4</button>
+
+                                </div>
+
+
+                                <p id="gameFeedback" class="feedback" aria-live="polite"></p>
+
+
+                                <button class="btn btn-primary" id="nextGame" hidden>
+                                    Soal berikutnya →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     KUIS
+                ====================================== -->
+
+                <section class="page" id="page-quiz">
+
+                    <div class="page-intro">
+
+                        <p class="eyebrow">UJI PEMAHAMANMU</p>
+                        <h1>Kuis Pecahan ☑</h1>
+
+                        <p class="muted">
+                            Jawab pertanyaan dengan teliti. Setiap jawaban benar bernilai 10 poin.
+                        </p>
+
+                    </div>
+
+
+                    <div class="quiz-wrap card">
+
+                        <div class="quiz-meta">
+
+                            <span id="questionNumber">
+                                PERTANYAAN 1 DARI 5
+                            </span>
+
+                            <span id="quizPoints">
+                                ⭐ 0 poin
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+                            <div id="quizProgress" class="progress-fill"></div>
+                        </div>
+
+
+                        <div id="quizArea">
+
+                            <h2 id="questionText">
+                                Berapa hasil dari 1/2 + 1/2?
+                            </h2>
+
+                            <div id="quizChoices" class="quiz-choices"></div>
+
+                            <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+
+
+                            <button class="btn btn-primary" id="submitAnswer" disabled>
+                                Periksa jawaban
+                            </button>
+
+                            <button class="btn btn-primary" id="nextQuestion" hidden>
+                                Lanjut →
+                            </button>
+
+                        </div>
+
+
+                        <div id="quizResult" class="quiz-result" hidden></div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =====================================
+                     PROGRES
+                ====================================== -->
+
+                <section class="page" id="page-progress">
+
+                    <div class="page-intro">
+
+                        <p class="eyebrow">KAMU HEBAT!</p>
+                        <h1>Progres Belajar 📈</h1>
+
+                        <p class="muted">
+                            Lihat semua pencapaian yang sudah kamu kumpulkan.
+                        </p>
+
+                    </div>
+
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card">
+
+                            <div class="stat-icon purple">★</div>
+
+                            <div>
+                                <span>Total bintang</span>
+                                <strong id="progressStars">0</strong>
+                            </div>
+
+                        </article>
+
+
+                        <article class="stat-card">
+
+                            <div class="stat-icon green">✓</div>
+
+                            <div>
+                                <span>Materi selesai</span>
+                                <strong id="progressMaterials">0/15</strong>
+                            </div>
+
+                        </article>
+
+
+                        <article class="stat-card">
+
+                            <div class="stat-icon yellow">☑</div>
+
+                            <div>
+                                <span>Kuis selesai</span>
+                                <strong id="progressQuizzes">0</strong>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                    <article class="card progress-card">
+
+                        <h2>Materi yang sudah dipelajari</h2>
+                        <div id="progressLessonList"></div>
+
+                    </article>
+
+
+                    <article class="card progress-card">
+
+                        <h2>Riwayat kuis</h2>
+
+                        <div id="quizHistory" class="history-list">
+
+                            <p class="muted">
+                                Belum ada kuis yang diselesaikan. Yuk coba kuis pertamamu!
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =====================================
+                     PROFIL
+                ====================================== -->
+
+                <section class="page" id="page-profile">
+
+                    <div class="page-intro">
+
+                        <p class="eyebrow">AKUN BELAJARMU</p>
+                        <h1>Profil Saya ☺</h1>
+
+                        <p class="muted">
+                            Atur nama panggilan agar pengalaman belajar terasa lebih dekat.
+                        </p>
+
+                    </div>
+
+
+                    <div class="card profile-card">
+
+                        <div class="profile-avatar">🧑‍🎓</div>
+
+                        <h2>Profil Pejuang Pecahan</h2>
+
+                        <label for="studentName">Nama panggilan</label>
+
+                        <input id="studentName" type="text" maxlength="24" placeholder="Masukkan nama kamu">
+
+
+                        <button class="btn btn-primary" id="saveProfile">
+                            Simpan profil
+                        </button>
+
+
+                        <p id="profileFeedback" class="feedback"></p>
+
+
+                        <p class="muted small">
+                            Data profil dan progres disimpan di browser perangkat ini.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FOOTER -->
+                <footer class="footer">
+                    © 2026 EduFun — Belajar pecahan jadi menyenangkan ✨
+                </footer>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- NOTIFIKASI -->
+    <div class="toast" id="toast" role="status"></div>
+
+
+
+    <!-- JAVASCRIPT UTAMA -->
+    <script src="js/app.js"></script>
+
+    <!-- SISTEM PETUALANGAN -->
+    <script src="js/adventure-mode.js"></script>
+    <script src="js/real-game.js"></script>
+    <script src="js/audio-manager.js"></script>
+
+    <!-- MICROINTERACTIONS -->
+    <script>
+        document.addEventListener("click", function(event) {
+
+            const button = event.target.closest("button");
+
+            if (!button || button.disabled) return;
+
+            const rect = button.getBoundingClientRect();
+            const ripple = document.createElement("span");
+
+            const size = Math.max(rect.width, rect.height);
+
+            const x = Number.isFinite(event.clientX) ?
+                event.clientX :
+                rect.left + rect.width / 2;
+
+            const y = Number.isFinite(event.clientY) ?
+                event.clientY :
+                rect.top + rect.height / 2;
+
+            ripple.className = "edu-ripple";
+            ripple.style.width = size + "px";
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+                (x - rect.left - size / 2) + "px";
+
+            ripple.style.top =
+                (y - rect.top - size / 2) + "px";
+
+            button.style.position = "relative";
+            button.style.overflow = "hidden";
+
+            button.appendChild(ripple);
+
+            setTimeout(function() {
+                ripple.remove();
+            }, 600);
+        });
+
+
+        function createStars(element) {
+
+            if (!element) return;
+
+            const rect = element.getBoundingClientRect();
+
+            for (let i = 0; i < 8; i++) {
+
+                const star = document.createElement("span");
+
+                star.className = "edu-star";
+
+                star.textContent =
+                    i % 2 === 0 ? "⭐" : "✨";
+
+                star.style.left =
+                    (rect.left + rect.width / 2) + "px";
+
+                star.style.top =
+                    (rect.top + rect.height / 2) + "px";
+
+                star.style.setProperty(
+                    "--x",
+                    (Math.random() * 120 - 60) + "px"
+                );
+
+                star.style.setProperty(
+                    "--y",
+                    (Math.random() * -100 - 20) + "px"
+                );
+
+                document.body.appendChild(star);
+
+                setTimeout(function() {
+                    star.remove();
+                }, 1000);
+            }
+        }
+
+
+        function watchFeedback(id) {
+
+            const element = document.getElementById(id);
+
+            if (!element) return;
+
+            let previous = "";
+
+            const observer = new MutationObserver(function() {
+
+                const message = element.textContent.trim();
+
+                if (!message || message === previous) return;
+
+                previous = message;
+
+                element.classList.remove("edu-pop");
+
+                void element.offsetWidth;
+
+                element.classList.add("edu-pop");
+
+                if (/benar|hebat|berhasil|luar biasa|sempurna/i.test(message)) {
+                    createStars(element);
+                }
+            });
+
+            observer.observe(element, {
+                childList: true,
+                characterData: true,
+                subtree: true
+            });
+        }
+
+
+        watchFeedback("gameFeedback");
+        watchFeedback("quizFeedback");
+        watchFeedback("profileFeedback");
+    </script>
+
+</body>
+
+</html>
